@@ -124,18 +124,25 @@ def detect_and_classify(pdf_path):
                 # Indicate Caption capturing is started or not 
                 started = False
                 for block in text_blocks:
+                    # block[x0, y0, x1, y1, text]
                     block_bbox = fitz.Rect(block[:4])
+                    # If Block in specified area
                     if caption_area.contains(block_bbox):
+                        # Start capturing when detect "fig"
                         if block[4].strip()[:3].lower() == "fig":
                             started = True
+                        # Capture text as Started & continued
                         if continued and started:
                             caption[ : len(caption) - 1]
                             caption = caption + block[4].strip()
+                        # If text is caption and Ending is not '-' Stop capturing.
                         if started and block[4].strip() and block[4].strip()[-1] != "-":
                             continued = False
                 if caption:
+                    # Predict Secondary Class
                     secondary_class = predict_class(caption)[1]+"/"
                     caption_path = f"{output_dir}/{primary_class}/{secondary_class}page_{page + 1}_object_{idx + 1}.txt"
+                    # Export caption to text file of same name as image
                     with open(caption_path, "w", encoding="utf-8") as f:
                         f.write(caption)
             # Save the cropped image
@@ -144,11 +151,13 @@ def detect_and_classify(pdf_path):
     delete_unused_images(pages_path.split("/")[0])
     success_popup(output_dir)
 
+# To browse one or more PDFs at once from popup
 def browse_pdf():
     print("Please! Select the PDFs from the Popup..")
     files_path, _ = QFileDialog.getOpenFileNames(None, "Select PDFs to Extract and Classify Image in it!", "", "PDF Files(*pdf)")
     return files_path
 
+# To Show success Popup
 def success_popup(output_directory):
     msg = QMessageBox()
     msg.setIcon(QMessageBox.Icon.Information)
@@ -159,6 +168,7 @@ def success_popup(output_directory):
     if msg.exec() == QMessageBox.StandardButton.Ok:
         QDesktopServices.openUrl(QUrl.fromLocalFile(output_directory))
 
+# Execute Main Functionality
 def execute():
     paths = browse_pdf()
     import_requirements()
