@@ -162,7 +162,7 @@ def browse_pdf():
 def success_popup(output_directory):
     msg = QMessageBox()
     msg.setIcon(QMessageBox.Icon.Information)
-    msg.setWindowIcon(QIcon("logo.png"))
+    msg.setWindowIcon(QIcon("Resources/logo.png"))
     msg.setWindowTitle("Success")
     msg.setText("Success! Extraction and Classification Completed.\nClick! OK to Open the Output.")
     msg.setStandardButtons(QMessageBox.StandardButton.Ok | QMessageBox.StandardButton.Cancel)
