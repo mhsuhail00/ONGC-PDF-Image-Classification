@@ -42,6 +42,7 @@ def import_requirements():
     log_model = joblib.load("Models/logistic_regression_model.pkl")
     yolo_model = YOLO("Models/yolo_model.pt")
     vectorizer = joblib.load("Models/tfidf_vectorizer.pkl")
+    
     # Classes of Caption Classification
     secondary_classes = [
                       "Contour_Maps",

@@ -1,0 +1,7 @@
+ultralytics==8.3.62
+PyQt6==6.8.1
+scikit-learn==1.6.1
+PyMuPDF==1.25.1
+opencv_python==4.10.0.84
+joblib==1.4.2
+Pillow==11.1.0

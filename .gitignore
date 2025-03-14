@@ -1,0 +1,14 @@
+# Ignore virtual environment
+venv/
+venv/*
+
+# Ignore output folder
+captured_images/
+captured_images/*
+
+# Ignore common system and IDE files
+__pycache__/
+*.pyc
+*.pyo
+*.log
+.DS_Store
