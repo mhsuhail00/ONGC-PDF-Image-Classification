@@ -125,7 +125,7 @@ This project was developed as part of an **Industrial Training at ONGC GEOPIC Ce
 ---
 ## 📄 Report
 You can view the **detailed report** of this project here:  
-  **[Project Report](https://github.com/mhsuhail00/ONGC-PDF-Image-Classification/blob/main/Resources/Report.pdf)**  
+  **[Project Report](https://github.com/mhsuhail00/ONGC-PDF-Image-Classification/blob/main/Resources/Final%20Report.pdf)**  
 
 ---
 ## 📜 **License**
